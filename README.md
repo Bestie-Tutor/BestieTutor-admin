@@ -69,11 +69,10 @@ If you want to get inspiration or just show something directly to your clients, 
 
 ## Quick start
 
-- `npm i argon-dashboard-react`
-- [Download from Github](https://github.com/creativetimofficial/argon-dashboard-react/archive/master.zip).
-- [Download from Creative Tim](https://www.creative-tim.com/product/argon-dashboard-react?ref=adr-github-readme).
-- Install with [Bower](https://bower.io/?ref=creativetim): ```bower install argon-dashboard-react```.
-- Clone the repo: `git clone https://github.com/creativetimofficial/argon-dashboard-react.git`.
+- `npm iinstall`
+- `npm start`
+- 필요시 `npm install argon-dashboard-react`
+
 
 
 ## Documentation
