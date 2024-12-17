@@ -1,6 +1,7 @@
 # 🐾 BestieTutor Admin Frontend Server 🐾
 
-안녕하세요! 베스티 튜터 관리자 프론트엔드 서버에 오신 것을 환영합니다! 이 서버는 서비스 분석, 회원 관리, 공지사항 및 이벤트 관리 등을 위한 Page를 제공합니다.
+안녕하세요! 베스티 튜터 관리자 프론트엔드 서버에 오신 것을 환영합니다! <br>
+이 서버는 서비스 분석, 회원 관리, 공지사항 및 이벤트 관리 등을 위한 Page를 제공합니다.
 
 ## 🚀 기능
 
@@ -23,7 +24,7 @@ git clone https://github.com/Bestie-Tutor/admin-front.git
 필요한 패키지를 설치합니다.
 ```bash
 npm install
-- 필요시 npm install argon-dashboard-react
+필요시 npm install argon-dashboard-react
 ```
 
 ### 3. 서버 실행
@@ -32,7 +33,7 @@ npm install
 npm start
 ```
 
-## 파일 구조
+## 📁 파일 구조
 ```
 .
 ├── Documentation
