@@ -1,23 +1,6 @@
-/*!
-
-=========================================================
-* Argon Dashboard React - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import Index from "views/Index.js";
 import Profile from "views/examples/Profile.js";
-import Maps from "views/examples/Maps.js";
+// import Maps from "views/examples/Maps.js";
 import Register from "views/examples/Register.js";
 import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
@@ -25,6 +8,12 @@ import Icons from "views/examples/Icons.js";
 import ConfirmEmail from "./views/examples/ConfirmEmail";
 import EditProfile from "./views/examples/EditProfile";
 import UsersTable from "./views/examples/UsersTable";
+import LanguagesTable from "./views/examples/LanguagesTable";
+import CharactersTable from "./views/examples/CharactersTable";
+import TopicsTable from "./views/examples/TopicsTable";
+import NoticesTable from "./views/examples/NoticesTable";
+import EventsTable from "./views/examples/EventsTable";
+import InquiriesTable from "./views/examples/InquiriesTable";
 import ResetPassword from "./views/examples/ResetPassword";
 import ConfirmPassword from "./views/examples/ConfirmPassword";
 import ResetPasswordSuccess from "./views/examples/ResetPasswordSuccess";
@@ -46,14 +35,14 @@ var routes = [
     layout: "/admin",
     api: false
   },
-  {
-    path: "/maps",
-    name: "Maps",
-    icon: "ni ni-pin-3 text-orange",
-    component: Maps,
-    layout: "/admin",
-    api: false
-  },
+  // {
+  //   path: "/maps",
+  //   name: "Maps",
+  //   icon: "ni ni-pin-3 text-orange",
+  //   component: Maps,
+  //   layout: "/admin",
+  //   api: false
+  // },
   {
     path: "/user-profile",
     name: "User Profile",
@@ -105,8 +94,56 @@ var routes = [
   {
     path: "/users",
     name: "Users",
-    icon: "ni ni-folder-17 text-pink",
+    icon: "ni ni-folder-17 text-red",
     component: UsersTable,
+    layout: "/admin",
+    api: true
+  },
+  {
+    path: "/languages",
+    name: "Languages",
+    icon: "ni ni-folder-17 text-orange",
+    component: LanguagesTable,
+    layout: "/admin",
+    api: true
+  },
+  {
+    path: "/characters",
+    name: "Characters",
+    icon: "ni ni-folder-17 text-yellow",
+    component: CharactersTable,
+    layout: "/admin",
+    api: true
+  },
+  {
+    path: "/topics",
+    name: "Topics",
+    icon: "ni ni-folder-17 text-green",
+    component: TopicsTable,
+    layout: "/admin",
+    api: true
+  },
+  {
+    path: "/notices",
+    name: "Notices",
+    icon: "ni ni-folder-17 text-blue",
+    component: NoticesTable,
+    layout: "/admin",
+    api: true
+  },
+  {
+    path: "/events",
+    name: "Events",
+    icon: "ni ni-folder-17 text-purple",
+    component: EventsTable,
+    layout: "/admin",
+    api: true
+  },
+  {
+    path: "/inquiries",
+    name: "Inquiries",
+    icon: "ni ni-folder-17 text-grey",
+    component: InquiriesTable,
     layout: "/admin",
     api: true
   },

@@ -9,9 +9,9 @@ import {
 } from "reactstrap";
 import {getAll} from "../../network/ApiAxios";
 
-const UsersTable = () => {
+const NoticesTable = () => {
 
-    const [users, setUsers] = useState([]);
+    const [notices, setNotices] = useState([]);
 
     useEffect(() => {
         const runAsync = async () => {
@@ -19,7 +19,7 @@ const UsersTable = () => {
             const {data} = response;
             console.log(data.users);
             if (data.success) {
-                setUsers(data.users);
+                setNotices(data.users);
             }
         }
         runAsync();
@@ -33,32 +33,24 @@ const UsersTable = () => {
                     <div className="col">
                         <Card className="shadow">
                             <CardHeader className="border-0">
-                                <h3 className="mb-0">Users</h3>
+                                <h3 className="mb-0">Notices</h3>
                             </CardHeader>
                             <Table className="align-items-center table-flush" responsive>
                                 <thead className="thead-light">
                                 <tr>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Nickname</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">Address</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Content</th>
                                     <th scope="col">CreatedAt</th>
-                                    <th scope="col">Preferences</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {users.map(user => (
-                                    <tr key={user.email}>
+                                {notices.map(notice => (
+                                    <tr key={notice.email}>
                                         <th scope="row">
-                                            {user.email}
+                                            {notice.name}
                                         </th>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
+                                        <td>{notice.email}</td>
+                                        <td>{notice.email}</td>
                                     </tr>
                                 ))}
                                 </tbody>
@@ -71,4 +63,4 @@ const UsersTable = () => {
     );
 }
 
-export default UsersTable;
+export default NoticesTable;
