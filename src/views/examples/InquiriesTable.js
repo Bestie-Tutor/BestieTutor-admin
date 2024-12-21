@@ -28,10 +28,10 @@ const InquiriesTable = () => {
     return (
         <>
             <Header/>
-            <Container>
+            <Container className="mt--7" fluid>
                 <Row>
                     <div className="col">
-                        <Card className="shadow">
+                        <Card className="bg-secondary shadow">
                             <CardHeader className="border-0">
                                 <h3 className="mb-0">Inquiries</h3>
                             </CardHeader>
