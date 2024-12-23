@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 
 // reactstrap components
 import {
@@ -27,9 +28,8 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [checkbox, setCheckbox] = useState(false);
     const [error, setError] = useState("");
-    const [showToast, setShowToast] = useState(false);
-    const [toastMessage, setToastMessage] = useState("Email sent! Check it to reset your password.");
-    const [userID, setUserID] = useState(null);
+    const [toastMessage, setToastMessage] = useState("Account created successfully!"); 
+    const [showToast, setShowToast] = useState(null);
 
     const registerUser = async () => {
         if (!(name && email && password && confirmPassword && checkbox)) {
@@ -47,16 +47,14 @@ const Register = () => {
             setError(data.msg);
             return;
         }
-        if (config.DEMO) {
-            setToastMessage("This is a demo, so we will not send you an email. Instead, click on this link to verify your account:")
-            setUserID(data.userID);
-        }
+
         setError("");
         setName("");
         setEmail("");
         setPassword("");
         setConfirmPassword("");
         setCheckbox(false);
+        setToastMessage("Account created successfully!");
         setShowToast(true);
     };
 
@@ -87,10 +85,6 @@ const Register = () => {
                     </Toast.Header>
                     <Toast.Body>
                         {toastMessage}
-                        {config.DEMO ?
-                            <a href={config.DOMAIN_NAME + '/auth/confirm-email/' + userID}>
-                                {config.DOMAIN_NAME + '/auth/confirm-email/' + userID}
-                            </a> : null}
                     </Toast.Body>
                 </Toast>
             </div>
