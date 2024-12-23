@@ -8,10 +8,12 @@ import {
     Table,
 } from "reactstrap";
 import {getAll} from "../../network/ApiAxios";
+import {useHistory} from "react-router-dom";
 
 const UsersTable = () => {
 
     const [users, setUsers] = useState([]);
+    const history = useHistory();
 
     useEffect(() => {
         const runAsync = async () => {
@@ -49,7 +51,7 @@ const UsersTable = () => {
                                 </thead>
                                 <tbody>
                                 {users.map(user => (
-                                    <tr key={user.email}>
+                                    <tr key={user.email} onClick={() => history.push('/admin/user-profile', { user })}>
                                         <th scope="row">
                                             {user.email}
                                         </th>

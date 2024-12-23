@@ -1,6 +1,6 @@
 import Index from "views/Index.js";
-import Profile from "views/examples/Profile.js";
-// import Maps from "views/examples/Maps.js";
+import OriginProfile from "views/examples/OriginProfile.js";
+import UserProfile from "views/examples/UserProfile.js";
 import Register from "views/examples/Register.js";
 import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
@@ -35,19 +35,19 @@ var routes = [
     layout: "/admin",
     api: false
   },
-  // {
-  //   path: "/maps",
-  //   name: "Maps",
-  //   icon: "ni ni-pin-3 text-orange",
-  //   component: Maps,
-  //   layout: "/admin",
-  //   api: false
-  // },
+  {
+    path: "/origin-profile",
+    name: "Origin Profile",
+    icon: "ni ni-single-02 text-yellow",
+    component: OriginProfile,
+    layout: "/admin",
+    api: true
+  },
   {
     path: "/user-profile",
     name: "User Profile",
     icon: "ni ni-single-02 text-yellow",
-    component: Profile,
+    component: UserProfile,
     layout: "/admin",
     api: true
   },

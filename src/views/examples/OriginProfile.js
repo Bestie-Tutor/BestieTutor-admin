@@ -17,7 +17,7 @@ import {
 import UserHeader from "components/Headers/UserHeader.js";
 import {useHistory} from "react-router-dom";
 
-const Profile = () => {
+const OriginProfile = () => {
 
     const user = JSON.parse(localStorage.getItem("user"));
     const history = useHistory();
@@ -236,4 +236,4 @@ const Profile = () => {
     );
 }
 
-export default Profile;
+export default OriginProfile;
