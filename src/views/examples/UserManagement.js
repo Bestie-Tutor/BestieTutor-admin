@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 // reactstrap components
 import {
@@ -11,17 +11,31 @@ import {
     Input,
     Container,
     Row,
-    Col
+    Col,
+    Table
 } from "reactstrap";
-// core components
 import UserHeader from "components/Headers/UserHeader.js";
 import { useLocation, useHistory } from "react-router-dom";
+import {getAll} from "../../network/ApiAxios";
 
-const UserProfile = () => {
+const UserManagement = () => {
 
     const history = useHistory();
     const location = useLocation();
     const { user } = location.state || {};
+    const [descriptions, setDescriptions] = useState([]);
+    
+    useEffect(() => {
+        const runAsync = async () => {
+            const response = await getAll();
+            const {data} = response;
+            console.log(data.users);
+            if (data.success) {
+                setDescriptions(data.users);
+            }
+        }
+        runAsync();
+    }, []);
 
     return (
         <>
@@ -37,7 +51,7 @@ const UserProfile = () => {
                                     </Col>
                                     <Col className="text-right" xs="4">
                                         <Button
-                                            color="primary"
+                                            color="danger"
                                             href="#pablo"
                                             onClick={() => history.push('#')}
                                             size="sm"
@@ -170,6 +184,33 @@ const UserProfile = () => {
                                             </FormGroup>
                                         </Col>
                                     </Row>
+                                    <hr className="my-4"/>
+                                    {/* Description */}
+                                    <h6 className="heading-small text-muted mb-4">Description</h6>
+                                    <Table className="align-items-center table-flush" responsive>
+                                        <thead className="thead-light">
+                                        <tr>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Language</th>
+                                            <th scope="col">Character</th>
+                                            <th scope="col">StartTime</th>
+                                            <th scope="col">EndTime</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {descriptions.map(description => (
+                                            <tr key={description.email}>
+                                                <th scope="row">
+                                                    {description.email}
+                                                </th>
+                                                <td>{description.name}</td>
+                                                <td>{description.name}</td>
+                                                <td>{description.name}</td>
+                                                <td>{description.name}</td>
+                                            </tr>
+                                        ))}
+                                        </tbody>
+                                    </Table>
                                 </div>
                             </CardBody>
                         </Card>
@@ -180,4 +221,4 @@ const UserProfile = () => {
     );
 }
 
-export default UserProfile;
+export default UserManagement;

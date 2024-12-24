@@ -6,11 +6,14 @@ import {
     Container,
     Row,
     Table,
+    Col,
+    Button
 } from "reactstrap";
 import {getAll} from "../../network/ApiAxios";
+import {useHistory} from "react-router-dom";
 
 const CharactersTable = () => {
-
+    const history = useHistory();
     const [characters, setCharacters] = useState([]);
 
     useEffect(() => {
@@ -33,7 +36,20 @@ const CharactersTable = () => {
                     <div className="col">
                         <Card className="bg-secondary shadow">
                             <CardHeader className="border-0">
-                                <h3 className="mb-0">Characters</h3>
+                                <Row className="align-items-center">
+                                    <Col xs="8">
+                                        <h3 className="mb-0">Characters</h3>
+                                    </Col>
+                                    <Col className="text-right" xs="4">
+                                        <Button
+                                            color="primary"
+                                            onClick={() => history.push('/admin/character-management', { add: true })}
+                                            size="sm"
+                                        >
+                                            Add
+                                        </Button>
+                                    </Col>
+                                </Row>
                             </CardHeader>
                             <Table className="align-items-center table-flush" responsive>
                                 <thead className="thead-light">
@@ -46,7 +62,7 @@ const CharactersTable = () => {
                                 </thead>
                                 <tbody>
                                 {characters.map(character => (
-                                    <tr key={character.email}>
+                                    <tr class="click-th" key={character.email} onClick={() => history.push('/admin/character-management', { character })}>
                                         <th scope="row">
                                             {character.name}
                                         </th>

@@ -8,9 +8,10 @@ import {
     Table,
 } from "reactstrap";
 import {getAll} from "../../network/ApiAxios";
+import {useHistory} from "react-router-dom";
 
 const InquiriesTable = () => {
-
+    const history = useHistory();
     const [inquiries, setInquiries] = useState([]);
 
     useEffect(() => {
@@ -45,7 +46,7 @@ const InquiriesTable = () => {
                                 </thead>
                                 <tbody>
                                 {inquiries.map(inquiry => (
-                                    <tr key={inquiry.email}>
+                                    <tr class="click-th" key={inquiry.email} onClick={() => history.push('/admin/inquiry-management', { inquiry })}>
                                         <th scope="row">
                                             {inquiry.name}
                                         </th>

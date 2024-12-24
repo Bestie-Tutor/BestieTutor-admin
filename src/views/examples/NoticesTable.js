@@ -6,11 +6,14 @@ import {
     Container,
     Row,
     Table,
+    Col,
+    Button
 } from "reactstrap";
 import {getAll} from "../../network/ApiAxios";
+import {useHistory} from "react-router-dom";
 
 const NoticesTable = () => {
-
+    const history = useHistory();
     const [notices, setNotices] = useState([]);
 
     useEffect(() => {
@@ -33,7 +36,20 @@ const NoticesTable = () => {
                     <div className="col">
                         <Card className="bg-secondary shadow">
                             <CardHeader className="border-0">
-                                <h3 className="mb-0">Notices</h3>
+                                <Row className="align-items-center">
+                                    <Col xs="8">
+                                        <h3 className="mb-0">Notices</h3>
+                                    </Col>
+                                    <Col className="text-right" xs="4">
+                                        <Button
+                                            color="primary"
+                                            onClick={() => history.push('/admin/notice-management', { add: true })}
+                                            size="sm"
+                                        >
+                                            Add
+                                        </Button>
+                                    </Col>
+                                </Row>
                             </CardHeader>
                             <Table className="align-items-center table-flush" responsive>
                                 <thead className="thead-light">
@@ -45,7 +61,7 @@ const NoticesTable = () => {
                                 </thead>
                                 <tbody>
                                 {notices.map(notice => (
-                                    <tr key={notice.email}>
+                                    <tr class="click-th" key={notice.email} onClick={() => history.push('/admin/notice-management', { notice })}>
                                         <th scope="row">
                                             {notice.name}
                                         </th>

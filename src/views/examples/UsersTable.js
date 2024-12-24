@@ -51,7 +51,7 @@ const UsersTable = () => {
                                 </thead>
                                 <tbody>
                                 {users.map(user => (
-                                    <tr key={user.email} onClick={() => history.push('/admin/user-profile', { user })}>
+                                    <tr class="click-th" key={user.email} onClick={() => history.push('/admin/user-management', { user })}>
                                         <th scope="row">
                                             {user.email}
                                         </th>

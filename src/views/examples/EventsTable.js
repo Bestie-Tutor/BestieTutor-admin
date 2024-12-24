@@ -6,11 +6,14 @@ import {
     Container,
     Row,
     Table,
+    Col,
+    Button
 } from "reactstrap";
 import {getAll} from "../../network/ApiAxios";
+import {useHistory} from "react-router-dom";
 
 const EventsTable = () => {
-
+    const history = useHistory();
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
@@ -33,7 +36,20 @@ const EventsTable = () => {
                     <div className="col">
                         <Card className="bg-secondary shadow">
                             <CardHeader className="border-0">
-                                <h3 className="mb-0">Events</h3>
+                                <Row className="align-items-center">
+                                    <Col xs="8">
+                                        <h3 className="mb-0">Events</h3>
+                                    </Col>
+                                    <Col className="text-right" xs="4">
+                                        <Button
+                                            color="primary"
+                                            onClick={() => history.push('/admin/event-management', { add: true })}
+                                            size="sm"
+                                        >
+                                            Add
+                                        </Button>
+                                    </Col>
+                                </Row>
                             </CardHeader>
                             <Table className="align-items-center table-flush" responsive>
                                 <thead className="thead-light">
@@ -45,7 +61,7 @@ const EventsTable = () => {
                                 </thead>
                                 <tbody>
                                 {events.map(event => (
-                                    <tr key={event.email}>
+                                    <tr class="click-th" key={event.email} onClick={() => history.push('/admin/event-management', { event })}>
                                         <th scope="row">
                                             {event.name}
                                         </th>

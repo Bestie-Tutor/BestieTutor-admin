@@ -66,7 +66,9 @@ class Sidebar extends React.Component {
   };
   // creates the links that appear in the left menu / Sidebar
   createLinks = routes => {
-    return routes.map((prop, key) => {
+    return routes
+    .filter(route => !route.excludeFromAdmin)
+    .map((prop, key) => {
       return (prop.layout === '/admin' && !prop.api) ? (
           <NavItem key={key}>
             <NavLink
@@ -84,7 +86,9 @@ class Sidebar extends React.Component {
   };
 
   createApiLinks = routes => {
-    return routes.map((prop, key) => {
+    return routes
+    .filter(route => !route.excludeFromAdmin)
+    .map((prop, key) => {
       return (prop.layout === '/admin' && prop.api) ? (
           <NavItem key={key}>
             <NavLink

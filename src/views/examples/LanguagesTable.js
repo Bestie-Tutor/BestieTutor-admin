@@ -6,11 +6,14 @@ import {
     Container,
     Row,
     Table,
+    Col,
+    Button
 } from "reactstrap";
 import {getAll} from "../../network/ApiAxios";
+import {useHistory} from "react-router-dom";
 
 const LanguagesTable = () => {
-
+    const history = useHistory();
     const [languages, setLanguages] = useState([]);
 
     useEffect(() => {
@@ -33,7 +36,20 @@ const LanguagesTable = () => {
                     <div className="col">
                         <Card className="bg-secondary shadow">
                             <CardHeader className="border-0">
-                                <h3 className="mb-0">Languages</h3>
+                                <Row className="align-items-center">
+                                    <Col xs="8">
+                                        <h3 className="mb-0">Languages</h3>
+                                    </Col>
+                                    <Col className="text-right" xs="4">
+                                        <Button
+                                            color="primary"
+                                            onClick={() => history.push('/admin/language-management', { add: true })}
+                                            size="sm"
+                                        >
+                                            Add
+                                        </Button>
+                                    </Col>
+                                </Row>
                             </CardHeader>
                             <Table className="align-items-center table-flush" responsive>
                                 <thead className="thead-light">
@@ -47,7 +63,7 @@ const LanguagesTable = () => {
                                 </thead>
                                 <tbody>
                                 {languages.map(language => (
-                                    <tr key={language.email}>
+                                    <tr class="click-th" key={language.email} onClick={() => history.push('/admin/language-management', { language })}>
                                         <th scope="row">
                                             {language.name}
                                         </th>

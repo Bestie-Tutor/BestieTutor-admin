@@ -6,11 +6,14 @@ import {
     Container,
     Row,
     Table,
+    Col,
+    Button
 } from "reactstrap";
 import {getAll} from "../../network/ApiAxios";
+import {useHistory} from "react-router-dom";
 
 const TopicsTable = () => {
-
+    const history = useHistory();
     const [topics, setTopics] = useState([]);
 
     useEffect(() => {
@@ -33,7 +36,20 @@ const TopicsTable = () => {
                     <div className="col">
                         <Card className="bg-secondary shadow">
                             <CardHeader className="border-0">
-                                <h3 className="mb-0">Topics</h3>
+                                <Row className="align-items-center">
+                                    <Col xs="8">
+                                        <h3 className="mb-0">Topics</h3>
+                                    </Col>
+                                    <Col className="text-right" xs="4">
+                                        <Button
+                                            color="primary"
+                                            onClick={() => history.push('/admin/topic-management', { add: true })}
+                                            size="sm"
+                                        >
+                                            Add
+                                        </Button>
+                                    </Col>
+                                </Row>
                             </CardHeader>
                             <Table className="align-items-center table-flush" responsive>
                                 <thead className="thead-light">
@@ -45,7 +61,7 @@ const TopicsTable = () => {
                                 </thead>
                                 <tbody>
                                 {topics.map(topic => (
-                                    <tr key={topic.email}>
+                                    <tr class="click-th" key={topic.email} onClick={() => history.push('/admin/topic-management', { topic })}>
                                         <th scope="row">
                                             {topic.name}
                                         </th>
