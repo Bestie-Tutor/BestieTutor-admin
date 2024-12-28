@@ -35,7 +35,16 @@
     "sass": "sass --watch src/styles:dist/styles"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "no-unused-vars": "warn",
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off"
+    },
+    "ignorePatterns": [
+      "build/",
+      "node_modules/"
+    ]
   },
   "browserslist": [
     ">0.2%",

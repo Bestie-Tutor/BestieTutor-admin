@@ -6,14 +6,15 @@ import {
     Container,
     Row,
     Table,
+    Col,
+    Button
 } from "reactstrap";
 import {getAll} from "../../network/ApiAxios";
 import {useHistory} from "react-router-dom";
 
-const UsersTable = () => {
-
-    const [users, setUsers] = useState([]);
+const TopicsTable = () => {
     const history = useHistory();
+    const [topics, setTopics] = useState([]);
 
     useEffect(() => {
         const runAsync = async () => {
@@ -21,7 +22,7 @@ const UsersTable = () => {
             const {data} = response;
             console.log(data.users);
             if (data.success) {
-                setUsers(data.users);
+                setTopics(data.users);
             }
         }
         runAsync();
@@ -35,32 +36,37 @@ const UsersTable = () => {
                     <div className="col">
                         <Card className="bg-secondary shadow">
                             <CardHeader className="border-0">
-                                <h3 className="mb-0">Users</h3>
+                                <Row className="align-items-center">
+                                    <Col xs="8">
+                                        <h3 className="mb-0">Topics</h3>
+                                    </Col>
+                                    <Col className="text-right" xs="4">
+                                        <Button
+                                            color="primary"
+                                            onClick={() => history.push('/admin/topic-management', { add: true })}
+                                            size="sm"
+                                        >
+                                            Add
+                                        </Button>
+                                    </Col>
+                                </Row>
                             </CardHeader>
                             <Table className="align-items-center table-flush" responsive>
                                 <thead className="thead-light">
                                 <tr>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Nickname</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">Address</th>
-                                    <th scope="col">CreatedAt</th>
-                                    <th scope="col">Preferences</th>
+                                    <th scope="col">Step</th>
+                                    <th scope="col">Topic</th>
+                                    <th scope="col">Difficulty</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {users.map(user => (
-                                    <tr class="click-th" key={user.email} onClick={() => history.push('/admin/user-management', { user })}>
+                                {topics.map(topic => (
+                                    <tr class="click-th" key={topic.email} onClick={() => history.push('/admin/topic-management', { topic })}>
                                         <th scope="row">
-                                            {user.email}
+                                            {topic.name}
                                         </th>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
+                                        <td>{topic.email}</td>
+                                        <td>{topic.email}</td>
                                     </tr>
                                 ))}
                                 </tbody>
@@ -73,4 +79,4 @@ const UsersTable = () => {
     );
 }
 
-export default UsersTable;
+export default TopicsTable;

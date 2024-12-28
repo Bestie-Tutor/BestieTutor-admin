@@ -6,14 +6,15 @@ import {
     Container,
     Row,
     Table,
+    Col,
+    Button
 } from "reactstrap";
 import {getAll} from "../../network/ApiAxios";
 import {useHistory} from "react-router-dom";
 
-const UsersTable = () => {
-
-    const [users, setUsers] = useState([]);
+const EventsTable = () => {
     const history = useHistory();
+    const [events, setEvents] = useState([]);
 
     useEffect(() => {
         const runAsync = async () => {
@@ -21,7 +22,7 @@ const UsersTable = () => {
             const {data} = response;
             console.log(data.users);
             if (data.success) {
-                setUsers(data.users);
+                setEvents(data.users);
             }
         }
         runAsync();
@@ -35,32 +36,37 @@ const UsersTable = () => {
                     <div className="col">
                         <Card className="bg-secondary shadow">
                             <CardHeader className="border-0">
-                                <h3 className="mb-0">Users</h3>
+                                <Row className="align-items-center">
+                                    <Col xs="8">
+                                        <h3 className="mb-0">Events</h3>
+                                    </Col>
+                                    <Col className="text-right" xs="4">
+                                        <Button
+                                            color="primary"
+                                            onClick={() => history.push('/admin/event-management', { add: true })}
+                                            size="sm"
+                                        >
+                                            Add
+                                        </Button>
+                                    </Col>
+                                </Row>
                             </CardHeader>
                             <Table className="align-items-center table-flush" responsive>
                                 <thead className="thead-light">
                                 <tr>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Nickname</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">Address</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Content</th>
                                     <th scope="col">CreatedAt</th>
-                                    <th scope="col">Preferences</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {users.map(user => (
-                                    <tr class="click-th" key={user.email} onClick={() => history.push('/admin/user-management', { user })}>
+                                {events.map(event => (
+                                    <tr class="click-th" key={event.email} onClick={() => history.push('/admin/event-management', { event })}>
                                         <th scope="row">
-                                            {user.email}
+                                            {event.name}
                                         </th>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.name}</td>
+                                        <td>{event.email}</td>
+                                        <td>{event.email}</td>
                                     </tr>
                                 ))}
                                 </tbody>
@@ -73,4 +79,4 @@ const UsersTable = () => {
     );
 }
 
-export default UsersTable;
+export default EventsTable;
