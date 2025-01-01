@@ -30,7 +30,7 @@ var routes = [
     icon: "ni ni-tv-2 text-primary",
     component: Index,
     layout: "/admin",
-    api: false
+    api: false,
   },
   {
     path: "/icons",
@@ -38,7 +38,7 @@ var routes = [
     icon: "ni ni-planet text-blue",
     component: Icons,
     layout: "/admin",
-    api: false
+    api: false,
     // excludeFromAdmin: true
   },
   {
@@ -47,7 +47,7 @@ var routes = [
     icon: "ni ni-single-02 text-yellow",
     component: OriginProfile,
     layout: "/admin",
-    api: true
+    api: true,
     // excludeFromAdmin: true
   },
   {
@@ -55,7 +55,7 @@ var routes = [
     component: UserManagement,
     layout: "/admin",
     api: true,
-    excludeFromAdmin: true
+    excludeFromAdmin: true,
   },
   {
     path: "/tables",
@@ -63,7 +63,7 @@ var routes = [
     icon: "ni ni-bullet-list-67 text-red",
     component: Tables,
     layout: "/admin",
-    api: false
+    api: false,
     // excludeFromAdmin: true
   },
   {
@@ -72,7 +72,7 @@ var routes = [
     icon: "ni ni-key-25 text-info",
     component: Login,
     layout: "/auth",
-    api: true
+    api: true,
   },
   {
     path: "/register",
@@ -80,7 +80,7 @@ var routes = [
     icon: "ni ni-circle-08 text-pink",
     component: Register,
     layout: "/auth",
-    api: true
+    api: true,
   },
   {
     path: "/confirm-email/:id",
@@ -88,7 +88,7 @@ var routes = [
     icon: "ni ni-check-bold text-green",
     component: ConfirmEmail,
     layout: "/auth",
-    api: true
+    api: true,
   },
   {
     path: "/users",
@@ -96,7 +96,7 @@ var routes = [
     icon: "ni ni-folder-17 text-red",
     component: UsersTable,
     layout: "/admin",
-    api: true
+    api: true,
   },
   {
     path: "/languages",
@@ -104,14 +104,14 @@ var routes = [
     icon: "ni ni-folder-17 text-orange",
     component: LanguagesTable,
     layout: "/admin",
-    api: true
+    api: true,
   },
   {
     path: "/language-management",
     component: LanguageManagement,
     layout: "/admin",
     api: true,
-    excludeFromAdmin: true
+    excludeFromAdmin: true,
   },
   {
     path: "/characters",
@@ -119,14 +119,14 @@ var routes = [
     icon: "ni ni-folder-17 text-yellow",
     component: CharactersTable,
     layout: "/admin",
-    api: true
+    api: true,
   },
   {
     path: "/character-management",
     component: CharacterManagement,
     layout: "/admin",
     api: true,
-    excludeFromAdmin: true
+    excludeFromAdmin: true,
   },
   {
     path: "/topics",
@@ -134,14 +134,14 @@ var routes = [
     icon: "ni ni-folder-17 text-green",
     component: TopicsTable,
     layout: "/admin",
-    api: true
+    api: true,
   },
   {
     path: "/topic-management",
     component: TopicManagement,
     layout: "/admin",
     api: true,
-    excludeFromAdmin: true
+    excludeFromAdmin: true,
   },
   {
     path: "/notices",
@@ -149,14 +149,14 @@ var routes = [
     icon: "ni ni-folder-17 text-blue",
     component: NoticesTable,
     layout: "/admin",
-    api: true
+    api: true,
   },
   {
     path: "/notice-management",
     component: NoticeManagement,
     layout: "/admin",
     api: true,
-    excludeFromAdmin: true
+    excludeFromAdmin: true,
   },
   {
     path: "/events",
@@ -164,14 +164,14 @@ var routes = [
     icon: "ni ni-folder-17 text-purple",
     component: EventsTable,
     layout: "/admin",
-    api: true
+    api: true,
   },
   {
     path: "/event-management",
     component: EventManagement,
     layout: "/admin",
     api: true,
-    excludeFromAdmin: true
+    excludeFromAdmin: true,
   },
   {
     path: "/inquiries",
@@ -179,14 +179,14 @@ var routes = [
     icon: "ni ni-folder-17 text-grey",
     component: InquiriesTable,
     layout: "/admin",
-    api: true
+    api: true,
   },
   {
     path: "/inquiry-management",
     component: InquiryManagement,
     layout: "/admin",
     api: true,
-    excludeFromAdmin: true
+    excludeFromAdmin: true,
   },
   {
     path: "/reset-password",
@@ -194,7 +194,7 @@ var routes = [
     icon: "ni ni-folder-17 text-pink",
     component: ResetPassword,
     layout: "/auth",
-    api: true
+    api: true,
   },
   {
     path: "/confirm-password/:id",
@@ -202,7 +202,7 @@ var routes = [
     icon: "ni ni-folder-17 text-pink",
     component: ConfirmPassword,
     layout: "/auth",
-    api: true
+    api: true,
   },
   {
     path: "/reset-success",
@@ -210,7 +210,7 @@ var routes = [
     icon: "ni ni-folder-17 text-pink",
     component: ResetPasswordSuccess,
     layout: "/auth",
-    api: false
-  }
+    api: false,
+  },
 ];
 export default routes;
