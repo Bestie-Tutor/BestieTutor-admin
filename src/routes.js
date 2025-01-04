@@ -39,7 +39,7 @@ var routes = [
     component: Icons,
     layout: "/admin",
     api: false,
-    // excludeFromAdmin: true
+    excludeFromAdmin: true,
   },
   {
     path: "/origin-profile",
@@ -48,7 +48,7 @@ var routes = [
     component: OriginProfile,
     layout: "/admin",
     api: true,
-    // excludeFromAdmin: true
+    excludeFromAdmin: true,
   },
   {
     path: "/user-management",
@@ -64,7 +64,7 @@ var routes = [
     component: Tables,
     layout: "/admin",
     api: false,
-    // excludeFromAdmin: true
+    excludeFromAdmin: true,
   },
   {
     path: "/login",
