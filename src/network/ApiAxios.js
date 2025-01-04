@@ -59,6 +59,22 @@ export const updateTopic = async (token, topicId, topicData) =>
 export const deleteTopic = async (token, topicId) =>
   await instance.delete(`topics/${topicId}`, { token });
 
+/* 공지 관리 */
+export const getAllNotices = async (token) =>
+  await instance.get("notices", { token });
+
+export const getNoticeById = async (token, noticeId) =>
+  await instance.get(`notices/${noticeId}`, { token });
+
+export const createNotice = async (token) =>
+  await instance.post("notices", { token });
+
+export const updateNotice = async (token, noticeId) =>
+  await instance.put(`notices/${noticeId}`, { token });
+
+export const deleteNotice = async (token, noticeId) =>
+  await instance.delete(`notices/${noticeId}`, { token });
+
 /* 세션 관리 */
 export const checkSession = async (token) =>
   await instance.post("/auth/check-session", { token });
